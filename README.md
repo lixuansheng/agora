@@ -8,6 +8,8 @@
 
 [English](README.en.md) · [协作设计](docs/ARCHITECTURE.md) · [效果评估计划](docs/EVALUATION.md) · [同类项目研究](docs/RELATED_PROJECTS.md)
 
+**[下载 Windows 64 位便携测试版](https://github.com/lixuansheng/agora/releases/tag/v0.9.4-beta.1)**：完整解压后双击 `CodexConductor.exe`，首次使用按包内说明连接自己的 Codex 与 DeepSeek Harness。
+
 ## 怎样推进任务
 
 ```text
@@ -38,7 +40,7 @@ Codex 主导实施和整合，DeepSeek 提供独立分析、复核和适合分�
 
 ## 环境
 
-- Windows 10/11，Python 3.12。
+- Windows 10/11 64 位；源码运行需要 Python 3.12，便携版已包含 Python 运行环境。
 - 已安装并登录的 Codex CLI 或 Codex 桌面应用。
 - 使用双模型时，需要已配置的 DeepSeek Harness 桌面应用并保持运行。
 
@@ -68,7 +70,9 @@ py -3.12 -m venv .venv
 
 ## Windows 程序
 
-当前发布 **0.9.4 源码测试版**，可按上面的步骤直接启动。Windows 目录版可使用下方构建命令生成；运行时将 `CodexConductor.exe` 与 `_internal` 保存在一起。
+当前发布 **0.9.4 测试版**，同时提供源码与 [Windows 64 位便携包](https://github.com/lixuansheng/agora/releases/tag/v0.9.4-beta.1)。下载 `Agora-v0.9.4-Windows-x64.zip`，完整解压到固定目录，双击 `CodexConductor.exe` 启动；将程序与 `_internal` 保存在一起。可双击 `Create Desktop Shortcut.cmd` 创建桌面快捷方式。
+
+首次使用连接自己的 Codex 与 DeepSeek Harness，在设置中选择专用项目目录并检查连接。便携包内附使用说明、第三方组件许可和 SHA-256 校验清单；源码构建方法见下方。
 
 源码版数据默认保存在当前程序目录；Windows 目录版通常使用 `%LOCALAPPDATA%/CodexConductor`，兼容已有的同目录数据库。可通过 `CONDUCTOR_DATA_DIR` 指定独立数据目录。任务数据库、设置和成果保存在本机，发布目录使用单独整理的源码。
 
@@ -92,7 +96,7 @@ $env:CONDUCTOR_DATA_DIR = Join-Path $env:TEMP 'agora-offline-tests'
 
 ## 版本与参与
 
-当前为 **0.9.4 源码测试版**，增加真实文件进展与原始证据增量校验。发布记录见 [RELEASE_NOTES.md](RELEASE_NOTES.md)。
+当前为 **0.9.4 测试版**，增加真实文件进展与原始证据增量校验。发布记录见 [RELEASE_NOTES.md](RELEASE_NOTES.md)。
 
 欢迎提交可复现问题和改进建议，见 [CONTRIBUTING.md](CONTRIBUTING.md)。项目开发使用 AI 辅助，重视真实场景、明确的验收条件和可复现测试。
 

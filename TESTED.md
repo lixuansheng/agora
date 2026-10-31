@@ -11,4 +11,14 @@
 
 公开仓库每次推送会执行 Windows 离线回归，最新结果见 [GitHub Actions](https://github.com/lixuansheng/agora/actions/workflows/windows-tests.yml)。另一台干净 Windows 的完整安装体验列入后续验证。
 
+## Windows 便携包
+
+2026-10-31，在本机 Windows 11 上检查了从最终 ZIP 解压的 0.9.4 程序：
+
+- ZIP 完整性、包内 1131 个文件的 SHA-256 清单及外部压缩包校验均通过。
+- 在含中文和空格的新目录解压，使用全新数据目录，独立 Python/Tk 运行环境、拖入组件、数据库及工作目录初始化通过。
+- 在仅含 Windows System32 的 PATH 下，读取 Codex 与 DeepSeek Harness 的模型及对话目录成功。
+- 实际桌面窗口正常显示并连接双方客户端，桌面快捷方式在测试目录创建成功。
+- 检查期间未提交模型任务，测试窗口和用户现用程序的数据分开保存。
+
 协作效果另外用同任务、同版本、同配置的比较衡量，见 `docs/EVALUATION.md`。工程测试数量与模型任务质量分别记录。
