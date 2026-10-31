@@ -2220,7 +2220,8 @@ class WorkflowTests(unittest.TestCase):
 
     def editing_engine(self, log):
         engine = self.discussion_engine(log, ["continue", "resolved"])
-        target = Path(self.temp_data.name) / "shared-draft.txt"
+        # Windows CI may expose the temp directory through an 8.3 path alias.
+        target = Path(self.temp_data.name).resolve() / "shared-draft.txt"
         target.write_text("Codex draft", encoding="utf-8")
         engine.route = lambda *args: {**copy.deepcopy(ROUTE), "use_discussion": True, "peer_edit": True}
         codex_ask, harness_ask = engine.codex.ask, engine.harness.ask
